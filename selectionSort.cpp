@@ -14,7 +14,7 @@ void print(int vet[], int tam)
 
 void selectionSort(int vetor[], int tam)
 {
-    int menor = 0;
+    int menor = vetor[0];
     print(vetor, tam);
     cout << "Ordenando: " << endl;
     for(int i = 0; i < tam - 2; i++)

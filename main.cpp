@@ -1,49 +1,109 @@
 #include <iostream>
-#include <stdlib.h>
-
+#include <random>
 using namespace std;
 
-void print(int vet[], int tam)
+void *printVector(int vet[], int TAM)
 {
-  for(int i = 0; i < tam; i++)
-  {
-      cout << vet[i] << " ";
-  }
-  cout << endl;
+    for(int i = 0; i < TAM; i++)
+        cout << vet[i] << " ";
+    cout << endl;
 }
 
-void selectionSort(int vetor[], int tam)
+void *aleatoryVector(int vet[], int TAM)
 {
-    int menor = 0;
-    cout << "Ordenando: " << endl;
-    for(int i = 0; i < tam - 2; i++)
+    srand(time(NULL));
+    for(int i = 0; i < TAM; i++)
     {
-        menor = i;
-        for(int j = i +1; j <= tam-1; j++)
-        {
-            if(vetor[j] < vetor[menor])
-                menor = j;
-        }
-        int aux = 0;
-        aux = vetor[i];
-        vetor[i] = vetor[menor];
-        vetor[menor] = aux;
+        vet[i] = rand() % 10;
     }
+}
+
+void *insertionSort(int vet[], int TAM)
+{
+    int valorAtual;
+    for(int i = 1 ; i < TAM; i++)
+    {
+        for(int j = i; j != 0; j--)
+        {
+            if(vet[j-1] > vet[j])
+            {
+                valorAtual = vet[j];
+                vet[j] = vet[j-1];
+                vet[j-1] = valorAtual;
+            }
+        }
+    }
+}
+
+void *bubbleSort(int vet[], int TAM )
+{
+    int aux;
+    for(int i = 0; i < TAM; i++)
+    {
+        for(int j = 0 ; j < TAM-1; j++)
+        {
+            if(vet[j] > vet[j+1])
+            {
+                aux = vet[j];
+                vet[j] = vet[j+1];
+                vet[j+1] = aux;
+            }
+        }
+    }
+}
+
+
+void *selectionSort(int vet[], int TAM)
+{
+
+    int menor, idMenor;
+    for(int i = 0 ; i < TAM; i++)
+    {
+        idMenor = i;
+        for(int j=i; j < TAM; j++)
+        {
+            if(vet[idMenor] > vet[j])
+            {
+                idMenor = j;
+
+            }
+        }
+        menor = vet[idMenor];
+        vet[idMenor] = vet[i];
+        vet[i] = menor;
+    }
+}
+
+void generateAndPrint(int vet[], int TAM)
+{
+    aleatoryVector(vet, TAM);
+    cout << "Vetor Atual:  ";
+    printVector(vet, TAM);
 }
 
 int main()
 {
-    cout << "Digite o tamanho do vetor" << endl;
-    int tam = 0;
-    cin >> tam;
-    int vetor [tam];
-    for(int i = 0; i < tam; i++)
-    {
-        vetor[i] = rand();
-    }
-    print(vetor,tam);
-    selectionSort(vetor,tam);
-    print(vetor,tam);
+
+    int TAM;
+    cout << "Digite o tamanho do vetor: ";
+    cin >> TAM;
+    int vet[TAM];
+
+    generateAndPrint(vet, TAM);
+
+    int option = 0;
+    cout << "Escolha qual algoritmo voce quer usar: " << endl;
+    cout << "[1] = Selection Sort" << endl;
+    cout << "[2] = Bubble Sort" << endl;
+    cout << "[3] = Insertion Sort" << endl;
+    cin >> option;
+    switch(option){
+        case 1: selectionSort(vet, TAM);
+        case 2: bubbleSort(vet,TAM);
+        case 3: insertionSort(vet, TAM);
+        }
+
+    printVector(vet, TAM);
 
     return 0;
 }

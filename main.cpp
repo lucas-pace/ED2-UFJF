@@ -1,5 +1,8 @@
 #include <iostream>
 #include <random>
+#include <stdlib.h>
+#include <math.h>
+
 using namespace std;
 
 void printVector(int vet[], int TAM)
@@ -138,7 +141,7 @@ void mergeSort(int vet[], int indiceEsq, int indiceDir)
 void generateAndPrint(int vet[], int TAM)
 {
     aleatoryVector(vet, TAM);
-    cout << "Vetor Atual:  ";
+    cout << "Vetor Atual:  " << endl;
     printVector(vet, TAM);
 }
 
@@ -166,6 +169,7 @@ int main()
         case 4: mergeSort(vet, 0, TAM);
     }
 
+    cout << "Vetor depois de ordenar: " << endl;
     printVector(vet, TAM);
 
     return 0;

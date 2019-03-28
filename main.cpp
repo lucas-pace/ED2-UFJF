@@ -17,21 +17,18 @@ void aleatoryVector(int vet[], int TAM)
     //srand(time(NULL));
     for(int i = 0; i < TAM; i++)
     {
-        vet[i] = rand() % 10;
+        vet[i] = rand() % 100;
     }
 }
 
 void insertionSort(int vet[], int TAM)
 {
-
     for(int i = 1 ; i <= TAM; i++)
     {
         int valorAtual = vet[i];
         for(int j = i-1; j != 0 && vet[j-1] > vet[j]; j--)
         {
-                valorAtual = vet[j];
-                vet[j] = vet[j-1];
-                vet[j-1] = valorAtual;
+            swap(vet[j], vet[j-1]);
         }
     }
 }
@@ -45,9 +42,7 @@ void bubbleSort(int vet[], int TAM )
         {
             if(vet[j] > vet[j+1])
             {
-                aux = vet[j];
-                vet[j] = vet[j+1];
-                vet[j+1] = aux;
+                swap(vet[j],vet[j+1]);
             }
         }
     }
@@ -56,7 +51,6 @@ void bubbleSort(int vet[], int TAM )
 
 void selectionSort(int vet[], int TAM)
 {
-
     int menor, idMenor;
     for(int i = 0 ; i < TAM; i++)
     {
@@ -66,12 +60,9 @@ void selectionSort(int vet[], int TAM)
             if(vet[idMenor] > vet[j])
             {
                 idMenor = j;
-
             }
         }
-        menor = vet[idMenor];
-        vet[idMenor] = vet[i];
-        vet[i] = menor;
+        swap(vet[idMenor], vet[i]);
     }
 }
 
@@ -143,6 +134,13 @@ void generateAndPrint(int vet[], int TAM)
     aleatoryVector(vet, TAM);
     cout << "Vetor Atual:  " << endl;
     printVector(vet, TAM);
+}
+
+void swap(int *x,int *y)
+{
+    int aux = *x;
+    *x = *y;
+    *y = aux;
 }
 
 int main()

@@ -149,7 +149,7 @@ int main()
     int TAM;
     cout << "Digite o tamanho do vetor: ";
     cin >> TAM;
-    int vet[TAM];
+    int *vet = new int[TAM];
 
     generateAndPrint(vet, TAM);
 
@@ -169,6 +169,7 @@ int main()
 
     cout << "Vetor depois de ordenar: " << endl;
     printVector(vet, TAM);
+    delete []vet;
 
     return 0;
 }

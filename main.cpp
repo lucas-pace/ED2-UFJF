@@ -2,8 +2,100 @@
 #include <random>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
+#include <bits/stdc++.h>
+
 
 using namespace std;
+
+
+class Registro
+{
+    int userId, movieId;
+    float rating;
+private:
+    Registro armazenaRegistro(ifstream, Registro);
+public:
+    Registro();
+    ~Registro();
+
+    int getUserId();
+    void setUserId(int);
+
+    int getMovieId();
+    void setMovieId(int);
+
+    float getRating();
+    void setRating(float);
+};
+
+int Registro::getUserId()
+{
+    return this->userId;
+}
+
+void Registro::setUserId(int id)
+{
+    this->userId = id;
+}
+
+int Registro::getMovieId()
+{
+    return this->movieId;
+}
+
+void Registro::setMovieId(int id)
+{
+    this->movieId = id;
+}
+
+float Registro::getRating()
+{
+    return this->rating;
+}
+
+void Registro::setRating(float rating)
+{
+    this->rating = rating;
+}
+
+Registro::Registro()
+{
+}
+
+Registro::~Registro() {}
+
+Registro armazenaRegistro(ifstream& arquivo, Registro registro)
+{
+
+    string s;
+    getline(arquivo,s,',');
+    int userId = atoi(s.c_str());
+
+    registro.setUserId(userId);
+
+    getline(arquivo,s,',');
+    int movieId = atoi(s.c_str());
+    registro.setMovieId(movieId);
+
+
+    getline(arquivo,s,',');
+    float rating = atof(s.c_str());
+    registro.setRating(rating);
+
+
+    return registro;
+}
+
+Registro pegarKbAleatorio(ifstream& arquivo, Registro registro, int tam)
+{
+
+    string lixo;
+    arquivo.seekg(rand() % tam, ios::beg); // procurar do inicio ate o fim do arquivo
+    getline(arquivo,lixo); // joga a linha no lixo
+    return armazenaRegistro(arquivo, registro);
+}
+
 
 void printVector(int vet[], int TAM)
 {
@@ -14,24 +106,21 @@ void printVector(int vet[], int TAM)
 
 void aleatoryVector(int vet[], int TAM)
 {
-    //srand(time(NULL));
+    srand(time(NULL));
     for(int i = 0; i < TAM; i++)
     {
-        vet[i] = rand() % 10;
+        vet[i] = rand() % 100;
     }
 }
 
 void insertionSort(int vet[], int TAM)
 {
-
     for(int i = 1 ; i <= TAM; i++)
     {
         int valorAtual = vet[i];
         for(int j = i-1; j != 0 && vet[j-1] > vet[j]; j--)
         {
-                valorAtual = vet[j];
-                vet[j] = vet[j-1];
-                vet[j-1] = valorAtual;
+            swap(vet[j], vet[j-1]);
         }
     }
 }
@@ -45,9 +134,7 @@ void bubbleSort(int vet[], int TAM )
         {
             if(vet[j] > vet[j+1])
             {
-                aux = vet[j];
-                vet[j] = vet[j+1];
-                vet[j+1] = aux;
+                swap(vet[j],vet[j+1]);
             }
         }
     }
@@ -56,7 +143,6 @@ void bubbleSort(int vet[], int TAM )
 
 void selectionSort(int vet[], int TAM)
 {
-
     int menor, idMenor;
     for(int i = 0 ; i < TAM; i++)
     {
@@ -66,12 +152,9 @@ void selectionSort(int vet[], int TAM)
             if(vet[idMenor] > vet[j])
             {
                 idMenor = j;
-
             }
         }
-        menor = vet[idMenor];
-        vet[idMenor] = vet[i];
-        vet[i] = menor;
+        swap(vet[idMenor], vet[i]);
     }
 }
 
@@ -145,33 +228,77 @@ void generateAndPrint(int vet[], int TAM)
     printVector(vet, TAM);
 }
 
+void swap(int *x,int *y)
+{
+    int aux = *x;
+    *x = *y;
+    *y = aux;
+}
+
 int main()
 {
+    ifstream arquivo;
+    arquivo.open("ratings.csv");
+    srand(time(NULL));
+    if(arquivo.is_open())
+    {
+        arquivo.seekg(0, arquivo.end); // apontar para o final do arquivo
+        int tamanhoArquivo = arquivo.tellg();
+        ifstream entrada;
+        entrada.open("entrada.txt");
+        if(entrada.is_open())
+        {
+            while(!entrada.eof())
+            {
+                string tamanho;
+                getline(entrada,tamanho);
 
-    int TAM;
-    cout << "Digite o tamanho do vetor: ";
-    cin >> TAM;
-    int *vet = new int[TAM];
+                int TAM = atoi(tamanho.c_str());
 
-    generateAndPrint(vet, TAM);
+                Registro *registros = new Registro[TAM];
+                for(int i = 0; i < 5; i++)  // rodar 5 vezes e gerar 5 conjuntos de elementos distintos de mesmo tamanho
+                {
 
-    int option = 0;
-    cout << "Escolha qual algoritmo voce quer usar: " << endl;
-    cout << "[1] = Selection Sort" << endl;
-    cout << "[2] = Bubble Sort" << endl;
-    cout << "[3] = Insertion Sort" << endl;
-    cout << "[4] = Merge Sort" << endl;
-    cin >> option;
-    switch(option){
-        case 1: selectionSort(vet, TAM);
-        case 2: bubbleSort(vet,TAM);
-        case 3: insertionSort(vet, TAM);
-        case 4: mergeSort(vet, 0, TAM);
+                    for(int j = 0; j < TAM; j++)
+                    {
+                        registros[j] = pegarKbAleatorio(arquivo,registros[j], tamanhoArquivo);
+                        cout << registros[j].getMovieId() << " ";
+
+                    }
+                    cout << endl;
+                }
+
+            cout << "---------------" << endl;
+            }
+
+        }
     }
+    /*
+        int *vet = new int[TAM];
+        generateAndPrint(vet, TAM);
 
-    cout << "Vetor depois de ordenar: " << endl;
-    printVector(vet, TAM);
-    delete []vet;
+        int option = 0;
+        cout << "Escolha qual algoritmo voce quer usar: " << endl;
+        cout << "[1] = Selection Sort" << endl;
+        cout << "[2] = Bubble Sort" << endl;
+        cout << "[3] = Insertion Sort" << endl;
+        cout << "[4] = Merge Sort" << endl;
+        cin >> option;
+        switch(option)
+        {
+        case 1:
+            selectionSort(vet, TAM);
+        case 2:
+            bubbleSort(vet,TAM);
+        case 3:
+            insertionSort(vet, TAM);
+        case 4:
+            mergeSort(vet, 0, TAM);
+        }
 
+        cout << "Vetor depois de ordenar: " << endl;
+        printVector(vet, TAM);
+        delete []vet;
+    */
     return 0;
 }

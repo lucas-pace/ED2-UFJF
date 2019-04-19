@@ -4,97 +4,10 @@
 #include <math.h>
 #include <string.h>
 #include <bits/stdc++.h>
-
+#include "registro.h"
 
 using namespace std;
 
-
-class Registro
-{
-    int userId, movieId;
-    float rating;
-private:
-    Registro armazenaRegistro(ifstream, Registro);
-public:
-    Registro();
-    ~Registro();
-
-    int getUserId();
-    void setUserId(int);
-
-    int getMovieId();
-    void setMovieId(int);
-
-    float getRating();
-    void setRating(float);
-};
-
-int Registro::getUserId()
-{
-    return this->userId;
-}
-
-void Registro::setUserId(int id)
-{
-    this->userId = id;
-}
-
-int Registro::getMovieId()
-{
-    return this->movieId;
-}
-
-void Registro::setMovieId(int id)
-{
-    this->movieId = id;
-}
-
-float Registro::getRating()
-{
-    return this->rating;
-}
-
-void Registro::setRating(float rating)
-{
-    this->rating = rating;
-}
-
-Registro::Registro()
-{
-}
-
-Registro::~Registro() {}
-
-Registro armazenaRegistro(ifstream& arquivo, Registro registro)
-{
-
-    string s;
-    getline(arquivo,s,',');
-    int userId = atoi(s.c_str());
-
-    registro.setUserId(userId);
-
-    getline(arquivo,s,',');
-    int movieId = atoi(s.c_str());
-    registro.setMovieId(movieId);
-
-
-    getline(arquivo,s,',');
-    float rating = atof(s.c_str());
-    registro.setRating(rating);
-
-
-    return registro;
-}
-
-Registro pegarKbAleatorio(ifstream& arquivo, Registro registro, int tam)
-{
-
-    string lixo;
-    arquivo.seekg(rand() % tam, ios::beg); // procurar do inicio ate o fim do arquivo
-    getline(arquivo,lixo); // joga a linha no lixo
-    return armazenaRegistro(arquivo, registro);
-}
 
 
 void printVector(int vet[], int TAM)
@@ -150,6 +63,23 @@ void selectionSort(int vet[], int TAM)
         for(int j=i; j < TAM; j++)
         {
             if(vet[idMenor] > vet[j])
+            {
+                idMenor = j;
+            }
+        }
+        swap(vet[idMenor], vet[i]);
+    }
+}
+
+void selectionSort(Registro vet[], int TAM)
+{
+    int menor, idMenor;
+    for(int i = 0 ; i < TAM; i++)
+    {
+        idMenor = i;
+        for(int j=i; j < TAM; j++)
+        {
+            if(vet[idMenor].getMovieId() > vet[j].getMovieId())
             {
                 idMenor = j;
             }
@@ -252,23 +182,31 @@ int main()
             {
                 string tamanho;
                 getline(entrada,tamanho);
-
-                int TAM = atoi(tamanho.c_str());
-
+                int TAM = atoi(tamanho.c_str()); // transformando tamanho para inteiro
                 Registro *registros = new Registro[TAM];
+                cout << "Gerando conjuntos de "<< TAM << " Valores" << endl << "-------------------" << endl;
                 for(int i = 0; i < 5; i++)  // rodar 5 vezes e gerar 5 conjuntos de elementos distintos de mesmo tamanho
                 {
-
+                    auto start = chrono::steady_clock::now();
                     for(int j = 0; j < TAM; j++)
                     {
                         registros[j] = pegarKbAleatorio(arquivo,registros[j], tamanhoArquivo);
                         cout << registros[j].getMovieId() << " ";
-
                     }
                     cout << endl;
+                    selectionSort(registros,TAM);
+                    cout << "Ordenado: " << endl;
+                    for(int j = 0 ; j < TAM; j++)
+                    {
+                        cout << registros[j].getMovieId() << " ";
+                    }
+                    cout << "Tempo: ";
+                    auto end = chrono::steady_clock::now();
+                    auto diff = end - start;
+                    cout << chrono::duration <double, milli> (diff).count() << " ms" << endl;
+                    cout << endl << endl;
                 }
-
-            cout << "---------------" << endl;
+                cout << endl << "-------------------" <<endl;
             }
 
         }

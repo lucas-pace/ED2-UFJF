@@ -1,9 +1,5 @@
 #include "Startup.h";
 
-#include "src/Headers/MergeSort.h";
-#include "src/Headers/QuickSort.h";
-#include "src/Headers/BubbleSort.h";
-
 void Startup::StartMergeSort(int vet[], int indiceEsq, int indiceDir)
 {
    MergeSort merge;
@@ -20,4 +16,10 @@ void Startup::StartBubbleSort(int vet[], int TAM)
 {
    BubbleSort bubble;
    bubble.bubbleSort(vet, TAM);
+}
+
+void Startup::StartSelectionSort(int vet[], int TAM)
+{
+   SelectionSort selection;
+   selection.selectionSort(vet, TAM);
 }

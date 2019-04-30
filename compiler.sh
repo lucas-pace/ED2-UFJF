@@ -6,3 +6,4 @@ echo "--- Run Build ---"
 ./run
 
 echo "--- End Build ---"
+rm -rf .vscode

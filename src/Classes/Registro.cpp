@@ -30,15 +30,12 @@ void Registro::setRating(float rating)
     this->rating = rating;
 }
 
-Registro::Registro()
-{
-}
+Registro::Registro(){}
 
 Registro::~Registro() {}
 
-Registro armazenaRegistro(ifstream& arquivo, Registro registro)
+Registro Registro::criaRegistro(ifstream& arquivo, Registro registro)
 {
-
     string s;
     getline(arquivo,s,',');
     int userId = atoi(s.c_str());
@@ -58,11 +55,10 @@ Registro armazenaRegistro(ifstream& arquivo, Registro registro)
     return registro;
 }
 
-Registro pegarKbAleatorio(ifstream& arquivo, Registro registro, int tam)
+Registro Registro::pegarKbAleatorio(ifstream& arquivo, Registro registro, int tam)
 {
-
     string lixo;
     arquivo.seekg(rand() % tam, ios::beg); // procurar do inicio ate o fim do arquivo
     getline(arquivo,lixo); // joga a linha no lixo
-    return armazenaRegistro(arquivo, registro);
+    return criaRegistro(arquivo, registro);
 }

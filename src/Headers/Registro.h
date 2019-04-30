@@ -1,3 +1,6 @@
+#ifndef _REGISTRO_H_
+#define _REGISTRO_H_
+
 #include <iostream>
 #include <random>
 #include <stdlib.h>
@@ -29,4 +32,6 @@ public:
     void setRating(float);
 
     Registro pegarKbAleatorio(ifstream &arquivo, Registro registro, int tam);
+    Registro criaRegistro(ifstream &arquivo, Registro registro);
 };
+#endif;

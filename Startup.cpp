@@ -23,3 +23,25 @@ void Startup::StartSelectionSort(int vet[], int TAM)
    SelectionSort selection;
    selection.selectionSort(vet, TAM);
 }
+
+void Startup::StartInsertionSort(Registro registros[], int ids[], int TAM)
+{
+   InsertionSort insertion;
+   
+   cout << "Insertion Sort com Ids" << endl;
+   insertion.insertionSort(ids, TAM);
+
+   cout << "Insertion Sort com Registros" << endl;
+   insertion.insertionSortObject(registros, TAM);
+}
+
+void Startup::StartHeapSort(Registro registros[], int ids[], int TAM)
+{
+   HeapSort heap;
+   
+   cout << "Insertion Sort com Ids" << endl;
+   heap.heapSort(ids, TAM);
+
+   cout << "Insertion Sort com Registros" << endl;
+   heap.heapSortObject(registros, TAM);
+}

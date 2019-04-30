@@ -32,18 +32,6 @@ void aleatoryVector(int vet[], int TAM)
     }
 }
 
-void insertionSort(Registro vet[], int TAM)
-{
-    for (int i = 1; i <= TAM; i++)
-    {
-        int valorAtual = vet[i].getUserId();
-        for (int j = i - 1; j != 0 && vet[j - 1].getUserId() > vet[j].getUserId(); j--)
-        {
-            swap(vet[j], vet[j - 1]);
-        }
-    }
-}
-
 void generateAndPrint(int vet[], int TAM)
 {
     aleatoryVector(vet, TAM);
@@ -215,7 +203,7 @@ void LeArquivo()
 
 int main()
 {
-    QuickSort sort;
+    HeapSort sort;
 
     Registro *vet = teste(10);
 
@@ -225,7 +213,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    bubbleSort(vet, 10);
+    sort.heapSortObject(vet, 10);
 
     for (int i = 0; i < 10; i++)
         cout << vet[i].getUserId() << " ";

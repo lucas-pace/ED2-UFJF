@@ -51,14 +51,5 @@ Registro Registro::criaRegistro(ifstream& arquivo, Registro registro)
     float rating = atof(s.c_str());
     registro.setRating(rating);
 
-
     return registro;
-}
-
-Registro Registro::pegarKbAleatorio(ifstream& arquivo, Registro registro, int tam)
-{
-    string lixo;
-    arquivo.seekg(rand() % tam, ios::beg); // procurar do inicio ate o fim do arquivo
-    getline(arquivo,lixo); // joga a linha no lixo
-    return criaRegistro(arquivo, registro);
 }

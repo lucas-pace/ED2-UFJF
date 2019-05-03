@@ -32,6 +32,6 @@ public:
     void setRating(float);
 
     Registro pegarKbAleatorio(ifstream &arquivo, Registro registro, int tam);
-    Registro criaRegistro(ifstream &arquivo, Registro registro);
+    static Registro criaRegistro(ifstream &arquivo, Registro registro);
 };
 #endif;

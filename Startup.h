@@ -1,6 +1,8 @@
 #include <iostream>
 #include <random>
 #include <stdlib.h>
+#include <math.h>
+#include <bits/stdc++.h>
 
 #include "src/Headers/Registro.h";
 #include "src/Headers/MergeSort.h";
@@ -9,6 +11,8 @@
 #include "src/Headers/SelectionSort.h";
 #include "src/Headers/InsertionSort.h";
 #include "src/Headers/HeapSort.h";
+
+#include "Time.cpp";
 
 using namespace std;
 
@@ -21,4 +25,8 @@ class Startup
         void StartSelectionSort(int vet[], int TAM);
         void StartInsertionSort(Registro registros[], int ids[], int TAM);
         void StartHeapSort(Registro registros[], int ids[], int TAM);
+
+    private:
+        void PrintObj(Registro arr[], int TAM);
+        void PrintInt(int arr[], int TAM);
 };

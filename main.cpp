@@ -6,6 +6,7 @@
 #include <bits/stdc++.h>
 #include "src/Headers/Registro.h";
 #include "Startup.h";
+#include "Construct.cpp";
 
 using namespace std;
 
@@ -79,7 +80,7 @@ void Menu()
     case 2:
         startup.StartBubbleSort(vet, TAM);
     case 3:
-        //insertionSort(vet, TAM);
+        //startup.StartInsertionSort(vet, TAM);
     case 4:
         startup.StartMergeSort(vet, 0, TAM);
     case 5:
@@ -92,57 +93,10 @@ void Menu()
     delete[] vet;
 }
 
-void selectionSort(Registro vet[], int TAM)
-{
-    int menor, idMenor;
-    for (int i = 0; i < TAM; i++)
-    {
-        idMenor = i;
-        for (int j = i; j < TAM; j++)
-        {
-            if (vet[idMenor].getMovieId() > vet[j].getMovieId())
-            {
-                idMenor = j;
-            }
-        }
-        swap(vet[idMenor], vet[i]);
-    }
-}
-
-void bubbleSort(Registro vet[], int TAM)
-{
-    int aux;
-    for (int i = 0; i < TAM; i++)
-    {
-        for (int j = 0; j < TAM - 1; j++)
-        {
-            if (vet[j].getUserId() > vet[j + 1].getUserId())
-            {
-                swap(vet[j], vet[j + 1]);
-            }
-        }
-    }
-}
-
-Registro *CriaArrayRegistro(ifstream& arquivo, int TAM)
-{
-    Registro registro;
-    Registro *registros = new Registro[TAM];
-
-    int tamanhoArquivo = arquivo.tellg();
-    auto start = chrono::steady_clock::now();
-
-    for (int j = 0; j < TAM; j++)
-    {
-        registros[j] = registro.pegarKbAleatorio(arquivo, registros[j], tamanhoArquivo);
-        cout << registros[j].getMovieId() << " ";
-    }
-
-    return registros;
-}
-
 void LeArquivo()
 {
+    Startup start;
+
     ifstream arquivo;
     arquivo.open("ratings.csv");
 
@@ -159,7 +113,6 @@ void LeArquivo()
                 string tamanho;
                 getline(entrada, tamanho);
                 int TAM = atoi(tamanho.c_str()); // transformando tamanho para inteiro
-                
 
                 cout << "Gerando conjuntos de " << TAM << " Valores" << endl
                      << "-------------------" << endl;
@@ -169,20 +122,16 @@ void LeArquivo()
                     srand(time(NULL) * i + time(NULL));
 
                     cout << endl;
-                    cout << endl;
-                    cout << endl;
-                    cout << endl;
+                    
+                    Registro *registros = criaArrayRegistro(arquivo, TAM);
+                    int *userIds = new int[TAM];
 
-                    Registro *registros = CriaArrayRegistro(arquivo, TAM);
+                    for(int i = 0; i < TAM; i++)
+                        userIds[i] = registros[i].getUserId();
 
-                    bubbleSort(registros, TAM);
+                    start.StartInsertionSort(registros, userIds, TAM);
 
-                    cout << "Ordenado: " << endl;
-                    cout << endl;
-                    for (int j = 0; j < TAM; j++)
-                    {
-                        cout << registros[j].getMovieId() << " ";
-                    }
+                    
 
                     // cout << "Tempo: ";
                     // auto end = chrono::steady_clock::now();
@@ -203,23 +152,23 @@ void LeArquivo()
 
 int main()
 {
-    HeapSort sort;
+    // HeapSort sort;
 
-    Registro *vet = teste(10);
+    // Registro *vet = teste(10);
 
-    for (int i = 0; i < 10; i++)
-        cout << vet[i].getUserId() << " ";
-    cout << endl;
-    cout << endl;
-    cout << endl;
+    // for (int i = 0; i < 10; i++)
+    //     cout << vet[i].getUserId() << " ";
+    // cout << endl;
+    // cout << endl;
+    // cout << endl;
 
-    sort.heapSortObject(vet, 10);
+    // sort.heapSortObject(vet, 10);
 
-    for (int i = 0; i < 10; i++)
-        cout << vet[i].getUserId() << " ";
-    cout << endl;
+    // for (int i = 0; i < 10; i++)
+    //     cout << vet[i].getUserId() << " ";
+    // cout << endl;
 
-    //LeArquivo();
+    LeArquivo();
 
     return 0;
 }

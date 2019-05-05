@@ -33,5 +33,6 @@ public:
 
     Registro pegarKbAleatorio(ifstream &arquivo, Registro registro, int tam);
     static Registro criaRegistro(ifstream &arquivo, Registro registro);
+    Registro* criaArrayRegistro(ifstream &arquivo, int TAM);
 };
 #endif;

@@ -53,6 +53,18 @@ Registro *teste(int TAM)
     return registros;
 }
 
+int tempoProcessamento()
+{
+    auto start = chrono::steady_clock::now();
+    cout << "Tempo: ";
+    auto end = chrono::steady_clock::now();
+    auto diff = end - start;
+    cout << chrono::duration<double, milli>(diff).count() << " ms" << endl;
+    cout << endl
+         << endl;
+}
+
+
 void Menu()
 {
     int TAM = 10;
@@ -99,50 +111,45 @@ void LeArquivo()
     ifstream arquivo;
     arquivo.open("ratings.csv");
 
-    if (arquivo.is_open())
+    if(arquivo.is_open())
     {
         arquivo.seekg(0, arquivo.end); // apontar para o final do arquivo
-
+        int tamanhoArquivo = arquivo.tellg();
         ifstream entrada;
         entrada.open("entrada.txt");
-        if (entrada.is_open())
+        if(entrada.is_open())
         {
-            while (!entrada.eof())
+            while(!entrada.eof())
             {
                 string tamanho;
-                getline(entrada, tamanho);
+                getline(entrada,tamanho);
                 int TAM = atoi(tamanho.c_str()); // transformando tamanho para inteiro
-
-                cout << "Gerando conjuntos de " << TAM << " Valores" << endl
-                     << "-------------------" << endl;
-
-                for (int i = 0; i < 5; i++) // rodar 5 vezes e gerar 5 conjuntos de elementos distintos de mesmo tamanho
+                Registro *registros = new Registro[TAM];
+                cout << "Gerando conjuntos de "<< TAM << " Valores" << endl << "-------------------" << endl;
+                for(int i = 0; i < 5; i++)  // rodar 5 vezes e gerar 5 conjuntos de elementos distintos de mesmo tamanho
                 {
-                    srand(time(NULL) * i + time(NULL));
-
+                    auto start = chrono::steady_clock::now();
+                    for(int j = 0; j < TAM; j++)
+                    {
+                        registros[j] = registros->pegarKbAleatorio(arquivo,registros[j], tamanhoArquivo);
+                        cout << registros[j].getMovieId() << " ";
+                    }
                     cout << endl;
-
-                    Registro *registros = criaArrayRegistro(arquivo, TAM);
-                    int *userIds = new int[TAM];
-
-                    for(int i = 0; i < TAM; i++)
-                        userIds[i] = registros[i].getUserId();
-
-                    start.StartInsertionSort(registros, userIds, TAM);
-
-
-
-                    // cout << "Tempo: ";
-                    // auto end = chrono::steady_clock::now();
-                    // auto diff = end - start;
-                    // cout << chrono::duration<double, milli>(diff).count() << " ms" << endl;
-                    // cout << endl
-                    //      << endl;
+                    //start.StartInsertionSort(registros,TAM);
+                    cout << "Ordenado: " << endl;
+                    for(int j = 0 ; j < TAM; j++)
+                    {
+                        cout << registros[j].getMovieId() << " ";
+                    }
+                    cout << "Tempo: ";
+                    auto end = chrono::steady_clock::now();
+                    auto diff = end - start;
+                    cout << chrono::duration <double, milli> (diff).count() << " ms" << endl;
+                    cout << endl << endl;
                 }
-
-                cout << endl
-                     << "-------------------" << endl;
+                cout << endl << "-------------------" <<endl;
             }
+
         }
     }
 }
@@ -168,6 +175,7 @@ int main()
     // cout << endl;
 
     LeArquivo();
+    Menu();
 
     return 0;
 }

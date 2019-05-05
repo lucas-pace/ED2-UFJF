@@ -1,4 +1,5 @@
 #include "Startup.h";
+#include "src/Headers/Time.h"
 
 void Startup::StartMergeSort(int vet[], int indiceEsq, int indiceDir)
 {
@@ -34,7 +35,7 @@ void Startup::StartInsertionSort(Registro registros[], int ids[], int TAM)
       auto end = chrono::steady_clock::now();
 
       PrintInt(ids, TAM);
-      printime(end - start);
+      cout << "Tempo : " << chrono::duration<double, milli>(end-start).count() << " ms" << endl;
    }
 
    {
@@ -43,7 +44,7 @@ void Startup::StartInsertionSort(Registro registros[], int ids[], int TAM)
       auto end = chrono::steady_clock::now();
 
       PrintObj(registros, TAM);
-      printime(end - start);
+      cout << "Tempo : " << chrono::duration<double, milli>(end-start).count() << " ms" << endl;
    }
 }
 

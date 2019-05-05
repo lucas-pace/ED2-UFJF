@@ -12,7 +12,6 @@
 #include "src/Headers/InsertionSort.h";
 #include "src/Headers/HeapSort.h";
 
-#include "Time.cpp";
 
 using namespace std;
 

@@ -6,7 +6,6 @@
 #include <bits/stdc++.h>
 #include "src/Headers/Registro.h";
 #include "Startup.h";
-#include "Construct.cpp";
 
 using namespace std;
 
@@ -103,7 +102,7 @@ void LeArquivo()
     if (arquivo.is_open())
     {
         arquivo.seekg(0, arquivo.end); // apontar para o final do arquivo
-        
+
         ifstream entrada;
         entrada.open("entrada.txt");
         if (entrada.is_open())
@@ -122,7 +121,7 @@ void LeArquivo()
                     srand(time(NULL) * i + time(NULL));
 
                     cout << endl;
-                    
+
                     Registro *registros = criaArrayRegistro(arquivo, TAM);
                     int *userIds = new int[TAM];
 
@@ -131,7 +130,7 @@ void LeArquivo()
 
                     start.StartInsertionSort(registros, userIds, TAM);
 
-                    
+
 
                     // cout << "Tempo: ";
                     // auto end = chrono::steady_clock::now();

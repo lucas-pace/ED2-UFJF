@@ -5,9 +5,12 @@
 #include <string.h>
 #include <bits/stdc++.h>
 #include "src/Headers/Registro.h";
+#include "src/Headers/QuickSort.h";
 #include "Startup.h";
 
 using namespace std;
+
+extern int numComparacoes;
 
 void swap(int *x, int *y)
 {
@@ -128,6 +131,7 @@ void LeArquivo()
                 cout << "Gerando conjuntos de "<< TAM << " Valores" << endl << "-------------------" << endl;
                 for(int i = 0; i < 5; i++)  // rodar 5 vezes e gerar 5 conjuntos de elementos distintos de mesmo tamanho
                 {
+                    cout << "Nao ordenado" << endl;
                     auto start = chrono::steady_clock::now();
                     for(int j = 0; j < TAM; j++)
                     {
@@ -135,7 +139,8 @@ void LeArquivo()
                         cout << registros[j].getMovieId() << " ";
                     }
                     cout << endl;
-                    //start.StartInsertionSort(registros,TAM);
+                    QuickSort *q = new QuickSort();
+                    q->quickSortObject(registros, 0,TAM-1);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {
@@ -145,7 +150,10 @@ void LeArquivo()
                     auto end = chrono::steady_clock::now();
                     auto diff = end - start;
                     cout << chrono::duration <double, milli> (diff).count() << " ms" << endl;
-                    cout << endl << endl;
+                    cout << endl;
+                    cout << "Numero de comparacoes " << endl;
+                    cout << numComparacoes << endl;
+                    cout << "**************"<< endl;
                 }
                 cout << endl << "-------------------" <<endl;
             }

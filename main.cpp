@@ -139,14 +139,14 @@ void LeArquivo()
                     for(int j = 0; j < TAM; j++)
                     {
                         registros[j] = registros->pegarKbAleatorio(arquivo,registros[j], tamanhoArquivo);
-                        cout << registros[j].getMovieId() << " ";
+                        cout << registros[j].getUserId() << " ";
                     }
                     cout << endl;
-                    q->quickSortMedian(registros, 0,TAM-1);
+                    q->quickSortMediana(registros, 0,TAM-1);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {
-                        cout << registros[j].getMovieId() << " ";
+                        cout << registros[j].getUserId() << " ";
                     }
                     cout << endl;
                     cout << "Tempo: " << endl;

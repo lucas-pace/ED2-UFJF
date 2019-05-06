@@ -1,6 +1,7 @@
 #include "../Headers/QuickSort.h";
 
 int numComparacoes = 0;
+int numCopias = 0;
 
 void QuickSort::quickSort(int arr[], int low, int high)
 {
@@ -45,6 +46,7 @@ void QuickSort::quickSortObject(Registro arr[], int low, int high)
 int QuickSort::partitionObject(Registro arr[], int low, int high)
 {
     int pivot = arr[high].getUserId();
+    numCopias++;
     int i = (low - 1);
 
     for (int j = low; j <= high- 1; j++)

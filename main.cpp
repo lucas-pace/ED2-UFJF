@@ -11,6 +11,7 @@
 using namespace std;
 
 extern int numComparacoes;
+extern int numCopias;
 
 void swap(int *x, int *y)
 {
@@ -110,6 +111,7 @@ void Menu()
 void LeArquivo()
 {
     Startup start;
+    QuickSort *q = new QuickSort();
 
     ifstream arquivo;
     arquivo.open("ratings.csv");
@@ -139,21 +141,22 @@ void LeArquivo()
                         cout << registros[j].getMovieId() << " ";
                     }
                     cout << endl;
-                    QuickSort *q = new QuickSort();
                     q->quickSortObject(registros, 0,TAM-1);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {
                         cout << registros[j].getMovieId() << " ";
                     }
-                    cout << "Tempo: ";
+                    cout << endl;
+                    cout << "Tempo: " << endl;
                     auto end = chrono::steady_clock::now();
                     auto diff = end - start;
                     cout << chrono::duration <double, milli> (diff).count() << " ms" << endl;
-                    cout << endl;
-                    cout << "Numero de comparacoes " << endl;
+                    cout << "Numero de comparacoes: " << endl;
                     cout << numComparacoes << endl;
-                    cout << "**************"<< endl;
+                    cout << "Numero de copias de registros: " << endl;
+                    cout << numCopias << endl;
+                    cout << "****************************"<< endl;
                 }
                 cout << endl << "-------------------" <<endl;
             }

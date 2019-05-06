@@ -17,12 +17,12 @@ void QuickSort::quickSort(int arr[], int low, int high)
 
 int QuickSort::partition(int arr[], int low, int high)
 {
-    int pivot = arr[high];
+    int pivo = arr[high];
     int i = (low - 1);
 
     for (int j = low; j <= high- 1; j++)
     {
-        if (arr[j] <= pivot)
+        if (arr[j] <= pivo)
         {
             i++;
             swap(arr[i], arr[j]);
@@ -46,13 +46,13 @@ void QuickSort::quickSortObject(Registro arr[], int low, int high)
 
 int QuickSort::partitionObject(Registro arr[], int low, int high)
 {
-    int pivot = arr[high].getUserId();
+    int pivo = arr[high].getUserId();
     numCopias++;
     int i = (low - 1);
 
     for (int j = low; j <= high- 1; j++)
     {
-        if (arr[j].getUserId() <= pivot)
+        if (arr[j].getUserId() <= pivo)
         {
             i++;
             numComparacoes++;

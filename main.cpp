@@ -93,14 +93,19 @@ void Menu()
     {
     case 1:
         startup.StartSelectionSort(vet, TAM);
+        break;
     case 2:
         startup.StartBubbleSort(vet, TAM);
+        break;
     case 3:
         //startup.StartInsertionSort(vet, TAM);
+        //break;
     case 4:
         startup.StartMergeSort(vet, 0, TAM);
+        break;
     case 5:
         startup.StartQuickSort(vet, 0, TAM);
+        break;
     }
 
     cout << "Vetor depois de ordenar: " << endl;

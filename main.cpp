@@ -142,7 +142,7 @@ void LeArquivo()
                         cout << registros[j].getUserId() << " ";
                     }
                     cout << endl;
-                    q->quickSortMediana(registros, 0,TAM-1);
+                    q->quickSortInsercao(registros, 0,TAM-1,100);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {

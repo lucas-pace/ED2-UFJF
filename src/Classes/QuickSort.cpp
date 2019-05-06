@@ -1,4 +1,5 @@
 #include "../Headers/QuickSort.h";
+#include "../Headers/InsertionSort.h";
 
 int numComparacoes = 0;
 int numCopias = 0;
@@ -135,4 +136,38 @@ int QuickSort::partitionMediana(Registro arr[], int inicio, int fim)
     //coloca o pivô na posição de ordenação
     swap(arr[i + 1], arr[fim]);
     return i + 1; //retorna a posição do pivô
+}
+
+void QuickSort::quickSortInsercao(Registro arr[], int inicio, int fim, int m)
+{
+    InsertionSort is = InsertionSort();
+        if (inicio < fim)
+		{
+		    if(m = 10)
+            {
+                if (fim - inicio <= 10)
+                {
+				is.insertionSortHibrido(arr, inicio, fim + 1);
+                }
+                else
+                {
+				int part = partitionObject(arr, inicio, fim);
+				quickSortInsercao(arr, inicio, part - 1, 10);
+				quickSortInsercao(arr, part + 1, fim, 10);
+                }
+            }
+            else
+            {
+                if (fim - inicio <= 100)
+                {
+				is.insertionSortHibrido(arr, inicio, fim + 1);
+                }
+                else
+                {
+				int part = partitionObject(arr, inicio, fim);
+				quickSortInsercao(arr, inicio, part - 1, 100);
+				quickSortInsercao(arr, part + 1, fim, 100);
+                }
+            }
+		}
 }

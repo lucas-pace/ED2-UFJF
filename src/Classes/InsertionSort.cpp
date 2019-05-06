@@ -23,3 +23,22 @@ void InsertionSort::insertionSort(int vet[], int TAM)
         }
     }
 }
+
+void InsertionSort::insertionSortHibrido(Registro arr[], int inicio, int fim)
+{
+    int i, j;
+	Registro chave;
+
+	for (i = inicio + 1; i < fim; i++)
+	{
+		chave = arr[i];
+		j = i - 1;
+
+		while (j >= 0 && (arr[j].getUserId() > chave.getUserId()))
+		{
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = chave;
+	}
+}

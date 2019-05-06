@@ -10,6 +10,7 @@
 
 using namespace std;
 
+/// Variaveis do quickSort.cpp que registram as estatisticas;
 extern int numComparacoes;
 extern int numCopias;
 
@@ -141,7 +142,7 @@ void LeArquivo()
                         cout << registros[j].getMovieId() << " ";
                     }
                     cout << endl;
-                    q->quickSortObject(registros, 0,TAM-1);
+                    q->quickSortMedian(registros, 0,TAM-1);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {

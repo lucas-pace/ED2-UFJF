@@ -72,60 +72,43 @@ void QuickSort::swapObject(Registro *x, Registro *y)
     *y = aux;
 }
 
-void QuickSort::quickSortMediana(Registro arr[], int inicio, int fim)
+void QuickSort::quickSortMediana(Registro arr[], int inicio, int fim, int k)
 {
-    if (inicio < fim) {
-        //realiza a partição
-        int q = partitionMediana(arr, inicio, fim);
-        //ordena a partição esquerda
-        quickSortMediana(arr, inicio, q - 1);
-        //ordena a partição direita
-        quickSortMediana(arr, q + 1, fim);
+    if (inicio < fim)
+    {
+        int q = partitionMediana(arr, inicio, fim, mediana(arr, inicio, fim, k));
+        quickSortMediana(arr, inicio, q - 1, k);
+        quickSortMediana(arr, q + 1, fim, k);
     }
 }
 
-int QuickSort::partitionMediana(Registro arr[], int inicio, int fim)
+int QuickSort::mediana(Registro arr[], int inicio, int fim, int k)
 {
-    //procura a mediana entre os valores dados
-    int meio = (inicio + fim) / 2;
-    int a = arr[inicio].getUserId();
-    int b = arr[meio].getUserId();
-    int c = arr[fim].getUserId();
-    int mediana; //índice da mediana
-    //A sequência de if...else a seguir verifica qual é a mediana entre os 3 números
-    if (a < b) {
-        if (b < c) {
-            mediana = meio;
-        } else {
-            if (a < c) {
-                mediana = fim;
-            } else {
-                mediana = inicio;
-            }
-        }
-    } else {
-        if (c < b) {
-            mediana = meio;
-        } else {
-            if (c < a) {
-                mediana = fim;
-            } else {
-                mediana = inicio;
-            }
-        }
-    }
-    //coloca o elemento da mediana no fim para poder usar o Quicksort recursivo normal
-    swap(arr[mediana], arr[fim]);
+    InsertionSort is = InsertionSort();
+    int indiceMediana;
+	int indiceRand;
 
-    //*******************ALGORITMO DE PARTIÇÃO*********************
-    int pivo = arr[fim].getUserId();
+    Registro vetor[k];
+    for (int i = 0; i < k; i++)
+    {
+        srand(i);
+        indiceRand = rand() % (fim - inicio);
+        vetor[i] = arr[indiceRand];
+    }
+
+    is.insertionSortHibrido(vetor, 0, k);
+    indiceMediana = vetor[k == 3 ? 1 : 2].getMovieId();
+    return indiceMediana;
+}
+
+int QuickSort::partitionMediana(Registro arr[], int inicio, int fim,int mediana)
+{
+    int pospiv = inicio + (mediana % (fim - inicio + 1));
+    int pivo = arr[pospiv].getUserId(); //Pega o userID da posicao que foi pedida e coloca ela como pivo
+	swap(arr[pospiv], arr[fim]);
+	pospiv = fim;
     int i = inicio - 1;
     int j;
-    /*
-     * Este laço irá varrer os vetores da esquerda para direira
-     * procurando os elementos que são menores ou iguais ao pivô.
-     * Esses elementos são colocados na partição esquerda.
-     */
     for (j = inicio; j <= fim - 1; j++) {
         if (arr[j].getUserId() <= pivo) {
             i++;
@@ -133,9 +116,8 @@ int QuickSort::partitionMediana(Registro arr[], int inicio, int fim)
             swap(arr[i], arr[j]);
         }
     }
-    //coloca o pivô na posição de ordenação
     swap(arr[i + 1], arr[fim]);
-    return i + 1; //retorna a posição do pivô
+    return i + 1;
 }
 
 void QuickSort::quickSortInsercao(Registro arr[], int inicio, int fim, int m)

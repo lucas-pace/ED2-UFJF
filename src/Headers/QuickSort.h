@@ -13,14 +13,15 @@ class QuickSort
     public:
         void quickSort(int arr[], int low, int high);
         void quickSortObject(Registro arr[], int low, int high);
-        void quickSortMediana(Registro arr[], int inicio, int fim);
+        void quickSortMediana(Registro arr[], int inicio, int fim, int k);
+        int mediana(Registro arr[], int inicio, int fim, int k);
         void quickSortInsercao(Registro arr[], int inicio, int fim, int m);
         void swapObject(Registro *x, Registro *y);
 
     private:
         int partition(int arr[], int low, int high);
         int partitionObject(Registro arr[], int low, int high);
-        int partitionMediana(Registro arr[], int inicio, int fim);
+        int partitionMediana(Registro arr[], int inicio, int fim, int mediana);
         int partitionInsercao(Registro arr[], int inicio, int fim);
 };
 

@@ -6,6 +6,7 @@
 #include <bits/stdc++.h>
 #include "src/Headers/Registro.h";
 #include "src/Headers/QuickSort.h";
+#include "src/Headers/ShellSort.h";
 #include "Startup.h";
 
 using namespace std;
@@ -118,6 +119,7 @@ void LeArquivo()
 {
     Startup start;
     QuickSort *q = new QuickSort();
+    ShellSort *s = new ShellSort();
 
     ifstream arquivo;
     arquivo.open("ratings.csv");
@@ -147,7 +149,8 @@ void LeArquivo()
                         cout << registros[j].getUserId() << " ";
                     }
                     cout << endl;
-                    q->quickSortMediana(registros, 0,TAM-1,5);
+                    //q->quickSortMediana(registros, 0,TAM-1,5);
+                    s->shellSort(registros, TAM);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {

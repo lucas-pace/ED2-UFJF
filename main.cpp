@@ -4,12 +4,14 @@
 #include <math.h>
 #include <string.h>
 #include <bits/stdc++.h>
+#include <chrono>
 #include "src/Headers/Registro.h";
 #include "src/Headers/QuickSort.h";
 #include "src/Headers/ShellSort.h";
 #include "Startup.h";
 
 using namespace std;
+using namespace std::chrono;
 
 /// Variaveis do quickSort.cpp que registram as estatisticas;
 extern int numComparacoes;
@@ -61,13 +63,15 @@ Registro *teste(int TAM)
 
 int tempoProcessamento()
 {
-    auto start = chrono::steady_clock::now();
-    cout << "Tempo: ";
-    auto end = chrono::steady_clock::now();
-    auto diff = end - start;
-    cout << chrono::duration<double, milli>(diff).count() << " ms" << endl;
-    cout << endl
-         << endl;
+    auto inicio = high_resolution_clock::now();
+    // Executar alguma função aqui
+    auto fim = high_resolution_clock::now();
+    auto duracao = duration_cast<microseconds>(fim - inicio);
+
+    cout << "Tempo de execucao: "
+         << duracao.count() << " microseconds" << endl;
+
+    return 0;
 }
 
 
@@ -142,7 +146,7 @@ void LeArquivo()
                 for(int i = 0; i < 5; i++)  // rodar 5 vezes e gerar 5 conjuntos de elementos distintos de mesmo tamanho
                 {
                     cout << "Nao ordenado" << endl;
-                    auto start = chrono::steady_clock::now();
+                    auto inicio = high_resolution_clock::now();
                     for(int j = 0; j < TAM; j++)
                     {
                         registros[j] = registros->pegarKbAleatorio(arquivo,registros[j], tamanhoArquivo);
@@ -157,10 +161,10 @@ void LeArquivo()
                         cout << registros[j].getUserId() << " ";
                     }
                     cout << endl;
-                    cout << "Tempo: " << endl;
-                    auto end = chrono::steady_clock::now();
-                    auto diff = end - start;
-                    cout << chrono::duration <double, milli> (diff).count() << " ms" << endl;
+                    auto fim = high_resolution_clock::now();
+                    auto duracao = duration_cast<microseconds>(fim - inicio);
+                    cout << "Tempo de execucao: " << endl;
+                    cout << duracao.count() << " microsegundos" << endl;
                     cout << "Numero de comparacoes: " << endl;
                     cout << numComparacoes << endl;
                     cout << "Numero de copias de registros: " << endl;

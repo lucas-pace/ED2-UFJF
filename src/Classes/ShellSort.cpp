@@ -28,5 +28,4 @@ void ShellSort::shellSort(Registro arr[], int tam)
             arr[j].setUserId(pivo);
         }
     }
-
 }

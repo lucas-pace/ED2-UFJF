@@ -1,5 +1,12 @@
 #include "../Headers/SelectionSort.h";
 
+/**
+ * Utiliza o algortimo de Selection Sort para ordenar um dado array de inteiros
+ *
+ * @param int vet[]
+ * @param  int tam
+ * @return void
+*/
 void SelectionSort::selectionSort(int vet[], int TAM)
 {
     int menor, idMenor;

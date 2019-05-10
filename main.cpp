@@ -17,6 +17,14 @@ using namespace std::chrono;
 extern int numComparacoes;
 extern int numCopias;
 
+/**
+ * Função que troca o valor de duas variáveis usando uma
+ * variável auxiliar
+ *
+ * @param int *x
+ * @param int *y
+ * @return void
+*/
 void swap(int *x, int *y)
 {
     int aux = *x;
@@ -24,6 +32,13 @@ void swap(int *x, int *y)
     *y = aux;
 }
 
+/**
+ * Função que imprime na tela os valores das chaves de um vetor
+ *
+ * @param int vet[]
+ * @param int TAM
+ * @return void
+*/
 void printVector(int vet[], int TAM)
 {
     for (int i = 0; i < TAM; i++)
@@ -31,6 +46,13 @@ void printVector(int vet[], int TAM)
     cout << endl;
 }
 
+/**
+ * Função que preenche um vetor com números aleatórios
+ *
+ * @param int vet[]
+ * @param int TAM
+ * @return void
+*/
 void aleatoryVector(int vet[], int TAM)
 {
     srand(time(NULL));
@@ -40,6 +62,13 @@ void aleatoryVector(int vet[], int TAM)
     }
 }
 
+/**
+ * Função que gera valores para um vetor e o imprime
+ *
+ * @param int vet[]
+ * @param int TAM
+ * @return void
+*/
 void generateAndPrint(int vet[], int TAM)
 {
     aleatoryVector(vet, TAM);

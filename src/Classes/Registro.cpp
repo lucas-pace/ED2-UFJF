@@ -36,6 +36,13 @@ Registro::Registro(){}
 
 Registro::~Registro() {}
 
+/**
+ * Pega uma linha do arquivo ratings.csv e insere no objeto de registro
+ *
+ * @param ifstream arquivo
+ * @param  Registro registro
+ * @return registro
+*/
 Registro Registro::criaRegistro(ifstream& arquivo, Registro registro)
 {
     string s;
@@ -56,6 +63,14 @@ Registro Registro::criaRegistro(ifstream& arquivo, Registro registro)
     return registro;
 }
 
+/**
+ * Cria um array de registros a partir de linhas selecionadas
+ * aleatoriamente do arquivo ratings.csv
+ *
+ * @param ifstream arquivo
+ * @param  int TAM
+ * @return array de registros
+*/
 Registro* Registro::criaArrayRegistro(ifstream &arquivo, int TAM)
 {
     Registro *registros = new Registro[TAM];
@@ -79,6 +94,14 @@ Registro* Registro::criaArrayRegistro(ifstream &arquivo, int TAM)
     return registros;
 }
 
+/**
+ * Pega uma linha aleatória (filme) do arquivo ratings.csv
+ *
+ * @param ifstream arquivo
+ * @param Registro registro
+ * @param int tam
+ * @return Registro::criaRegistro
+*/
 Registro Registro::pegarKbAleatorio(ifstream &arquivo, Registro registro, int tam)
 {
     string lixo;

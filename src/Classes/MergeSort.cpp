@@ -2,6 +2,14 @@
 
 MergeSort::MergeSort(){}
 
+/**
+ * Utiliza o algortimo de Merge Sort para ordenar um vetor de inteiros
+ *
+ * @param int vet[]
+ * @param int indiceEsq
+ * @param int indiceDir
+ * @return void
+*/
 void MergeSort::mergeSort(int vet[], int indiceEsq, int indiceDir)
 {
     if (indiceEsq < indiceDir)
@@ -15,6 +23,15 @@ void MergeSort::mergeSort(int vet[], int indiceEsq, int indiceDir)
     }
 }
 
+/**
+ * Algortimo de intercalação para o Merge Sort
+ *
+ * @param int vet[]
+ * @param int indiceEsq
+ * @param int indiceMed
+ * @param int indiceDir
+ * @return void
+*/
 void MergeSort::Intercalacao(int vet[], int indiceEsq, int indiceMed, int indiceDir)
 {
     int i, j, k;

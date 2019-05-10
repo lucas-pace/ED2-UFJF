@@ -5,7 +5,7 @@
  *
  * @param Registro arr[]
  * @param  int tam
- * @return nada
+ * @return void
 */
 void ShellSort::shellSort(Registro arr[], int tam)
 {

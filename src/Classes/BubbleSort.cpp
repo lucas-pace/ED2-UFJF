@@ -1,5 +1,12 @@
 #include "../Headers/BubbleSort.h";
 
+/**
+ * Utiliza o algortimo de Bubble Sort para ordenar um dado array de inteiros
+ *
+ * @param int vet[]
+ * @param int TAM
+ * @return void
+*/
 void BubbleSort::bubbleSort(int vet[], int TAM)
 {
     int aux;
@@ -15,6 +22,13 @@ void BubbleSort::bubbleSort(int vet[], int TAM)
     }
 }
 
+/**
+ * Utiliza o algortimo de Bubble Sort para ordenar um dado array de registros
+ *
+ * @param Registro vet[]
+ * @param int TAM
+ * @return void
+*/
 void BubbleSort::bubbleSortObject(Registro vet[], int TAM)
 {
     int aux;

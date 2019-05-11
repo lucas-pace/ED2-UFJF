@@ -5,9 +5,10 @@
 #include <string.h>
 #include <bits/stdc++.h>
 #include <chrono>
-#include "src/Headers/Registro.h";
-#include "src/Headers/QuickSort.h";
-#include "src/Headers/ShellSort.h";
+#include "src/Headers/Registro.h"
+#include "src/Headers/QuickSort.h"
+#include "src/Headers/ShellSort.h"
+#include "src/Headers/Hash.h"
 #include "Startup.h";
 
 using namespace std;
@@ -182,8 +183,8 @@ void LeArquivo()
                         cout << registros[j].getUserId() << " ";
                     }
                     cout << endl;
-                    //q->quickSortMediana(registros, 0,TAM-1,5);
-                    s->shellSort(registros, TAM);
+                    q->quickSortMediana(registros, 0,TAM-1,5);
+                    //s->shellSort(registros, TAM);
                     cout << "Ordenado: " << endl;
                     for(int j = 0 ; j < TAM; j++)
                     {
@@ -228,7 +229,7 @@ int main()
     // cout << endl;
 
     LeArquivo();
-    Menu();
+    // Menu();
 
     return 0;
 }

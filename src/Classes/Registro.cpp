@@ -63,6 +63,30 @@ Registro Registro::criaRegistro(ifstream& arquivo, Registro registro)
     return registro;
 }
 
+
+
+/**
+ * Pega userId e o movieId do arquivo ratings.csv e insere no objeto de registro
+ *
+ * @param ifstream arquivo
+ * @param  Registro registro
+ * @return registro
+*/
+Registro Registro::criaDuplaRegistro(ifstream& arquivo, Registro registro)
+{
+    string s;
+    getline(arquivo,s,',');
+    int userId = atoi(s.c_str());
+
+    registro.setUserId(userId);
+
+    getline(arquivo,s,',');
+    int movieId = atoi(s.c_str());
+    registro.setMovieId(movieId);
+
+    return registro;
+}
+
 /**
  * Cria um array de registros a partir de linhas selecionadas
  * aleatoriamente do arquivo ratings.csv
@@ -109,4 +133,22 @@ Registro Registro::pegarKbAleatorio(ifstream &arquivo, Registro registro, int ta
     getline(arquivo, lixo);                // joga a linha no lixo
 
     return Registro::criaRegistro(arquivo, registro);
+}
+
+/**
+ * Pega uma linha aleatória (filme) do arquivo ratings.csv e retorna um registro com userId e movieId
+ *
+ * @param ifstream arquivo
+ * @param Registro registro
+ * @param int tam
+ * @return Registro::criaDuplaRegistro
+*/
+
+Registro Registro::pegarDuplaAleatorio(ifstream &arquivo, Registro registro, int tam)
+{
+    string lixo;
+    arquivo.seekg(rand() % tam, ios::beg); // procurar do inicio ate o fim do arquivo
+    getline(arquivo, lixo);                // joga a linha no lixo
+
+    return Registro::criaDuplaRegistro(arquivo, registro);
 }

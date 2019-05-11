@@ -2,6 +2,8 @@
 
 using namespace std;
 
+Hash::Hash(){}
+
 Hash::Hash(int tam)
 {
     this->balde = tam;

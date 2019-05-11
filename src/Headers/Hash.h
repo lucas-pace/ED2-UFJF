@@ -11,6 +11,7 @@ class Hash
     list<int> *tabela;
 
     public:
+        Hash();
 
         Hash(int tam);
 

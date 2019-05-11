@@ -1,86 +1,209 @@
 #include "Startup.h";
 #include "src/Headers/Time.h"
 
-void Startup::StartMergeSort(int vet[], int indiceEsq, int indiceDir)
+using namespace std::chrono;
+
+void Startup::StartMergeSort(Registro registros[], int ids[], int indiceEsq, int indiceDir, ofstream &saida)
 {
    MergeSort merge;
-   merge.mergeSort(vet, indiceEsq, indiceDir);
+   {
+      auto inicio = high_resolution_clock::now();
+      merge.mergeSort(ids, indiceEsq, indiceDir);
+      auto resultado = high_resolution_clock::now() - inicio;
+
+      long long microseconds = duration_cast<std::chrono::microseconds>(resultado).count();
+      
+      PrintInt("Merge Sort", indiceDir - indiceEsq, saida, microseconds, 0, 0);
+   }
+
+   {
+      auto inicio = high_resolution_clock::now();
+      merge.mergeSortObject(registros, indiceEsq, indiceDir);
+      auto resultado = high_resolution_clock::now() - inicio;
+
+      long long microseconds = duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintObj("Merge Sort", indiceDir - indiceEsq, saida, microseconds, 0, 0);
+   }
 }
 
-void Startup::StartQuickSort(int vet[], int low, int high)
+void Startup::StartQuickSort(Registro registros[], int ids[], int low, int high, ofstream &saida)
 {
+   
    QuickSort quick;
-   quick.quickSort(vet, low, high);
+   
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      quick.quickSort(ids, low, high);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Quick Sort", high - low, saida, microseconds, 0, 0);
+   }
+
+   //quick.inicializa();
+
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      quick.quickSortObject(registros, low, high);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintObj("Quick Sort", high - low, saida, microseconds, 0, 0);
+   }
 }
 
-void Startup::StartBubbleSort(int vet[], int TAM)
+void Startup::StartBubbleSort(Registro registros[], int ids[], int TAM, ofstream &saida)
 {
    BubbleSort bubble;
-   bubble.bubbleSort(vet, TAM);
+   
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      bubble.bubbleSort(ids, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Bubble Sort", TAM, saida, microseconds, 0, 0);
+   }
+
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      bubble.bubbleSortObject(registros, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintObj("Bubble Sort", TAM, saida, microseconds, 0, 0);
+   }
 }
 
-void Startup::StartSelectionSort(int vet[], int TAM)
+void Startup::StartSelectionSort(Registro registros[], int ids[], int TAM, ofstream &saida)
 {
    SelectionSort selection;
-   selection.selectionSort(vet, TAM);
+   
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      selection.selectionSort(ids, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Selection Sort", TAM, saida, microseconds, 0, 0);
+   }
+
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      selection.selectionSortObject(registros, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintObj("Selection Sort", TAM, saida, microseconds, 0, 0);
+   }
 }
 
-void Startup::StartInsertionSort(Registro registros[], int ids[], int TAM)
+void Startup::StartInsertionSort(Registro registros[], int ids[], int TAM, ofstream &saida)
 {
    InsertionSort insertion;
 
    {
-      auto start = chrono::steady_clock::now();
+      auto inicio = std::chrono::high_resolution_clock::now();
       insertion.insertionSort(ids, TAM);
-      auto end = chrono::steady_clock::now();
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
 
-      PrintInt(ids, TAM);
-      cout << "Tempo : " << chrono::duration<double, milli>(end-start).count() << " ms" << endl;
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Insertion Sort", TAM, saida, microseconds, insertion.numComparacoes, insertion.numCopias);
    }
 
    {
-      auto start = chrono::steady_clock::now();
+      auto inicio = std::chrono::high_resolution_clock::now();
       insertion.insertionSortObject(registros, TAM);
-      auto end = chrono::steady_clock::now();
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
 
-      PrintObj(registros, TAM);
-      cout << "Tempo : " << chrono::duration<double, milli>(end-start).count() << " ms" << endl;
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintObj("Insertion Sort", TAM, saida, microseconds, insertion.numComparacoes, insertion.numCopias);
    }
 }
 
-void Startup::StartHeapSort(Registro registros[], int ids[], int TAM)
+void Startup::StartHeapSort(Registro registros[], int ids[], int TAM, ofstream &saida)
 {
    HeapSort heap;
 
-   cout << "Insertion Sort com Ids" << endl;
-   heap.heapSort(ids, TAM);
-
-   cout << "Insertion Sort com Registros" << endl;
-   heap.heapSortObject(registros, TAM);
-}
-
-void Startup::PrintInt(int arr[], int TAM)
-{
-   cout << "Insertion Sort com Ids"
-        << ": ";
-
-   for (int j = 0; j < TAM; j++)
    {
-      cout << arr[j] << " ";
+      auto inicio = std::chrono::high_resolution_clock::now();
+      heap.heapSort(ids, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Heap Sort", TAM, saida, microseconds, 0, 0);
    }
 
-   cout << endl;
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      heap.heapSortObject(registros, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintObj("Heap Sort", TAM, saida, microseconds, 0, 0);
+   }
 }
 
-void Startup::PrintObj(Registro arr[], int TAM)
+void Startup::PrintInt(const char *nome, int TAM, ofstream &saida, long long tempo, int comparacoes, int copias)
 {
-   cout << "Insertion Sort com Registros"
-        << ": ";
+   cout << '\n'
+        << "Vetor de Inteiros" << "\n";
+   saida << '\n'
+         << "Vetor de Inteiros" << "\n";
 
-   for (int j = 0; j < TAM; j++)
-   {
-      cout << arr[j].getUserId() << " ";
-   }
+   cout << '\n'
+        << "("
+        << "N="
+        << ")"
+        << "Instancia: " << TAM << "\n\n"
+        << setw(24) << right << "TEMPO(ms)" << setw(15) << "COMPARACAO" << setw(15) << "TROCAS" << '\n';
+   saida << '\n'
+         << "("
+         << "N="
+         << ")"
+         << "Instancia: " << TAM << "\n\n"
+         << setw(24) << right << "TEMPO(ms)" << setw(15) << "COMPARACAO" << setw(15) << "TROCAS" << '\n';
+   cout << left << setw(16) << nome << right << setw(8) << setprecision(4) << setiosflags(ios::fixed | ios::showpoint) << (tempo)
+        << setw(15) << comparacoes << setw(15) << copias << '\n';
+   saida << left << setw(16) << nome << right << setw(8) << setprecision(4) << setiosflags(ios::fixed | ios::showpoint) << (tempo)
+         << setw(15) << comparacoes << setw(15) << copias << '\n';
+   saida << '\n\n';
+         
+}
 
-   cout << endl;
+void Startup::PrintObj(const char *nome, int TAM, ofstream &saida, long long tempo, int comparacoes, int copias)
+{
+   cout << '\n'
+        << "Vetor de Objetos" << "\n";
+   saida << '\n'
+         << "Vetor de Objetos" << "\n";
+
+   cout << '\n'
+        << "("
+        << "N="
+        << ")"
+        << "Instancia: " << TAM << "\n\n"
+        << setw(24) << right << "TEMPO(ms)" << setw(15) << "COMPARACAO" << setw(15) << "TROCAS" << '\n';
+   saida << '\n'
+         << "("
+         << "N="
+         << ")"
+         << "Instancia: " << TAM << "\n\n"
+         << setw(24) << right << "TEMPO(ms)" << setw(15) << "COMPARACAO" << setw(15) << "TROCAS" << '\n';
+   cout << left << setw(16) << nome << right << setw(8) << setprecision(4) << setiosflags(ios::fixed | ios::showpoint) << (tempo)
+        << setw(15) << comparacoes << setw(15) << copias<< '\n';
+   saida << left << setw(16) << nome << right << setw(8) << setprecision(4) << setiosflags(ios::fixed | ios::showpoint) << (tempo)
+         << setw(15) << comparacoes << setw(15) << copias << '\n';
+   saida << '\n\n';
 }

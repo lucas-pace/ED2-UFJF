@@ -18,14 +18,14 @@ using namespace std;
 class Startup
 {
     public:
-        void StartMergeSort(int vet[], int indiceEsq, int indiceDir);
-        void StartQuickSort(int arr[], int low, int high);
-        void StartBubbleSort(int vet[], int TAM);
-        void StartSelectionSort(int vet[], int TAM);
-        void StartInsertionSort(Registro registros[], int ids[], int TAM);
-        void StartHeapSort(Registro registros[], int ids[], int TAM);
+        void StartMergeSort(Registro registros[], int vet[], int indiceEsq, int indiceDir, ofstream &saida);
+        void StartQuickSort(Registro registros[], int arr[], int low, int high, ofstream &saida);
+        void StartBubbleSort(Registro registros[], int vet[], int TAM, ofstream &saida);
+        void StartSelectionSort(Registro registros[], int vet[], int TAM, ofstream &saida);
+        void StartInsertionSort(Registro registros[], int ids[], int TAM, ofstream &saida);
+        void StartHeapSort(Registro registros[], int ids[], int TAM, ofstream &saida);
 
     private:
-        void PrintObj(Registro arr[], int TAM);
-        void PrintInt(int arr[], int TAM);
+        void PrintObj(const char *nome, int TAM, ofstream &saida, long long tempo, int comparacoes, int copias);
+        void PrintInt(const char *nome, int TAM, ofstream &saida, long long tempo, int comparacoes, int copias);
 };

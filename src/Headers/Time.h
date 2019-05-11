@@ -1,23 +1,21 @@
 #ifndef TIME_H_INCLUDED
 #define TIME_H_INCLUDED
 
-#include <chrono>
+#include <iostream>
 #include <math.h>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
-
-template<class T> class Time {
+class Time {
 
 public:
 
     Time();
     ~Time();
 
-    void printTime(T&& diff);
-
-
-
+    double static tempoProcessamento(high_resolution_clock::time_point t1, high_resolution_clock::time_point t2);
 };
 
 

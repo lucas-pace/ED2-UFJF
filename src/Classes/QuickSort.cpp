@@ -1,9 +1,7 @@
 #include "../Headers/QuickSort.h";
 #include "../Headers/InsertionSort.h";
-
 int numComparacoes = 0;
-int numCopias = 0;
-
+    int numCopias = 0;
 /**
  * Utiliza o algortimo de Quick Sort recursivo para ordenar um dado array de inteiros
  *
@@ -11,7 +9,8 @@ int numCopias = 0;
  * @param int low
  * @param int high
  * @return void
-*/
+// **/
+
 void QuickSort::quickSort(int arr[], int low, int high)
 {
     if (low < high)
@@ -24,7 +23,7 @@ void QuickSort::quickSort(int arr[], int low, int high)
 }
 
 /**
- * Algortimo de particionamento do método de quick sort recursivo
+ * Algortimo de particionamento do mï¿½todo de quick sort recursivo
  *
  * @param int arr[]
  * @param int low
@@ -36,16 +35,20 @@ int QuickSort::partition(int arr[], int low, int high)
     int pivo = arr[high];
     int i = (low - 1);
 
-    for (int j = low; j <= high- 1; j++)
+    for (int j = low; j <= high - 1; j++)
     {
+        //numComparacoes++;
         if (arr[j] <= pivo)
         {
             i++;
             swap(arr[i], arr[j]);
+            //numCopias++;
         }
     }
 
     swap(arr[i + 1], arr[high]);
+    //numCopias++;
+    
     return (i + 1);
 }
 
@@ -69,7 +72,7 @@ void QuickSort::quickSortObject(Registro arr[], int low, int high)
 }
 
 /**
- * Algortimo de particionamento do método de quick sort recursivo para objetos
+ * Algortimo de particionamento do mï¿½todo de quick sort recursivo para objetos
  *
  * @param Registro arr[]
  * @param int low
@@ -79,7 +82,7 @@ void QuickSort::quickSortObject(Registro arr[], int low, int high)
 int QuickSort::partitionObject(Registro arr[], int low, int high)
 {
     int pivo = arr[high].getUserId();
-    numCopias++;
+    //numCopias++;
     int i = (low - 1);
 
     for (int j = low; j <= high- 1; j++)
@@ -87,7 +90,7 @@ int QuickSort::partitionObject(Registro arr[], int low, int high)
         if (arr[j].getUserId() <= pivo)
         {
             i++;
-            numComparacoes++;
+            //numComparacoes++;
             swap(arr[i], arr[j]);
         }
     }
@@ -97,31 +100,6 @@ int QuickSort::partitionObject(Registro arr[], int low, int high)
     return (i + 1);
 }
 
-/**
- * Simples função que troca os valores de dois objetos
- * usando um objeto auxiliar
- *
- * @param Registro *x
- * @param Registro *y
- * @return void
-*/
-void QuickSort::swapObject(Registro *x, Registro *y)
-{
-    Registro aux = *x;
-    *x = *y;
-    *y = aux;
-}
-
-/**
- *  Variação do algortimo de quick sort recursivo que utiliza a
- *  mediana de números aleatórios como pivô.
- *
- * @param Registro arr[]
- * @param int inicio
- * @param int fim
- * @param int k
- * @return void
-*/
 void QuickSort::quickSortMediana(Registro arr[], int inicio, int fim, int k)
 {
     if (inicio < fim)
@@ -133,7 +111,7 @@ void QuickSort::quickSortMediana(Registro arr[], int inicio, int fim, int k)
 }
 
 /**
- * Função que encontra a mediana, dado um array de Registros.
+ * Funï¿½ï¿½o que encontra a mediana, dado um array de Registros.
  *
  * @param Registro arr[]
  * @param int inicio
@@ -162,7 +140,7 @@ int QuickSort::mediana(Registro arr[], int inicio, int fim, int k)
 
 /**
  * Algortimo de particionamento do quick sort recursivo
- * que utiliza a mediana de números aleatórios como pivo.
+ * que utiliza a mediana de nï¿½meros aleatï¿½rios como pivo.
  *
  * @param Registro arr[]
  * @param int inicio
@@ -191,7 +169,7 @@ int QuickSort::partitionMediana(Registro arr[], int inicio, int fim,int mediana)
 
 /**
  * Algortimo de Quick Sort Hibrido que utiliza o Insert Sort
- * para ordenar valores de pequenas partições.
+ * para ordenar valores de pequenas partiï¿½ï¿½es.
  *
  * @param Registro arr[]
  * @param int inicio

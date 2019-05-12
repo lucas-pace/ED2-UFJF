@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 
-Linear::Linear(int tamanho)
+Linear::Linear(int tam)
 {
-    this->tam = tamanho;
+    this->tam = tam;
     this->tabela = new long int[tam];
 	this->colisoes = 0;
     this->qtdPosicoesPreenchidas = 0;

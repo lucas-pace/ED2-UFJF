@@ -1,5 +1,4 @@
 #include "Startup.h";
-#include "src/Headers/Time.h"
 
 using namespace std::chrono;
 
@@ -12,7 +11,7 @@ void Startup::StartMergeSort(Registro registros[], int ids[], int indiceEsq, int
       auto resultado = high_resolution_clock::now() - inicio;
 
       long long microseconds = duration_cast<std::chrono::microseconds>(resultado).count();
-      
+
       PrintInt("Merge Sort", indiceDir - indiceEsq, saida, microseconds, merge.numComparacoes, merge.numCopias);
    }
 
@@ -29,9 +28,9 @@ void Startup::StartMergeSort(Registro registros[], int ids[], int indiceEsq, int
 
 void Startup::StartQuickSort(Registro registros[], int ids[], int low, int high, ofstream &saida)
 {
-   
+
    QuickSort quick;
-   
+
    {
       auto inicio = std::chrono::high_resolution_clock::now();
       quick.quickSort(ids, low, high);
@@ -56,7 +55,7 @@ void Startup::StartQuickSort(Registro registros[], int ids[], int low, int high,
 void Startup::StartBubbleSort(Registro registros[], int ids[], int TAM, ofstream &saida)
 {
    BubbleSort bubble;
-   
+
    {
       auto inicio = std::chrono::high_resolution_clock::now();
       bubble.bubbleSort(ids, TAM);
@@ -81,7 +80,7 @@ void Startup::StartBubbleSort(Registro registros[], int ids[], int TAM, ofstream
 void Startup::StartSelectionSort(Registro registros[], int ids[], int TAM, ofstream &saida)
 {
    SelectionSort selection;
-   
+
    {
       auto inicio = std::chrono::high_resolution_clock::now();
       selection.selectionSort(ids, TAM);
@@ -222,7 +221,7 @@ void Startup::PrintInt(const char *nome, int TAM, ofstream &saida, long long tem
    saida << left << setw(16) << nome << right << setw(8) << setprecision(4) << setiosflags(ios::fixed | ios::showpoint) << (tempo)
          << setw(15) << comparacoes << setw(15) << copias << '\n';
    saida << '\n\n';
-         
+
 }
 
 void Startup::PrintObj(const char *nome, int TAM, ofstream &saida, long long tempo, int comparacoes, int copias)

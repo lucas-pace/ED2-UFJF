@@ -14,7 +14,7 @@ class InsertionSort
         int numComparacoes = 0;
         int numCopias = 0;
         void insertionSortObject(Registro vet[], int TAM);
-        void insertionSortHibrido(Registro vet[], int inicio, int fim);
+        void insertionSortHibrido(int vet[], int inicio, int fim);
         void insertionSort(int vet[], int TAM);
 };
 #endif

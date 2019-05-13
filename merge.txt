@@ -4,208 +4,208 @@ Vetor de Inteiros
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        1.0000              2         123123
+Merge Sort             2              1              2
 2570
 Vetor de Objetos
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             1         ------         ------
+Merge Sort             1              2              4
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        1.0000              2         123123
+Merge Sort             1              1              2
 2570
 Vetor de Objetos
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             0         ------         ------
+Merge Sort             1              2              4
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        0.0000              2         123123
+Merge Sort             1              1              2
 2570
 Vetor de Objetos
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             0         ------         ------
+Merge Sort             1              2              4
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        0.0000              2         123123
+Merge Sort             1              1              2
 2570
 Vetor de Objetos
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             0         ------         ------
+Merge Sort             1              2              4
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        0.0000              2         123123
+Merge Sort             1              1              2
 2570
 Vetor de Objetos
 
 (N=)Instancia: 1
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             1         ------         ------
+Merge Sort             1              2              4
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        8.0000              2         123123
+Merge Sort             9             27             39
 2570
 Vetor de Objetos
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             9         ------         ------
+Merge Sort            11             54             78
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        8.0000              2         123123
+Merge Sort             9             23             39
 2570
 Vetor de Objetos
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort            10         ------         ------
+Merge Sort            11             46             78
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        7.0000              2         123123
+Merge Sort            11             27             39
 2570
 Vetor de Objetos
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort             9         ------         ------
+Merge Sort            13             54             78
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        8.0000              2         123123
+Merge Sort            10             28             39
 2570
 Vetor de Objetos
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort            10         ------         ------
+Merge Sort            13             56             78
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort        7.0000              2         123123
+Merge Sort             2             26             39
 2570
 Vetor de Objetos
 
 (N=)Instancia: 10
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort            10         ------         ------
+Merge Sort             3             52             78
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort      102.0000              2         123123
+Merge Sort            24            557            680
 2570
 Vetor de Objetos
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort           137         ------         ------
+Merge Sort            32           1114           1360
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort      105.0000              2         123123
+Merge Sort            22            555            680
 2570
 Vetor de Objetos
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort           198         ------         ------
+Merge Sort            30           1111           1360
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort      186.0000              2         123123
+Merge Sort            20            521            680
 2570
 Vetor de Objetos
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort           171         ------         ------
+Merge Sort            81           1039           1360
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort      107.0000              2         123123
+Merge Sort            27            534            680
 2570
 Vetor de Objetos
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort           139         ------         ------
+Merge Sort            33           1065           1360
 2570
 Vetor de Inteiros
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort       78.0000              2         123123
+Merge Sort            20            536            680
 2570
 Vetor de Objetos
 
 (N=)Instancia: 100
 
                TEMPO(ms)     COMPARACAO         TROCAS
-Merge Sort            98         ------         ------
+Merge Sort            28           1069           1360
 2570

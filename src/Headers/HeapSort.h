@@ -10,7 +10,9 @@ using namespace std;
 
 class HeapSort
 {
-    public: 
+    public:
+        int numComparacoes = 0;
+        int numCopias = 0;
         void heapSort(int arr[], int n);
         void heapSortObject(Registro arr[], int n);
 

@@ -1,0 +1,106 @@
+
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       2              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       2              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       2              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       2              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao       1              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao      97            708            552
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao      81           1052            852
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao      67           1009            812
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao     395           4895           4984
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Quick Sort Insercao     389           4895           4984
+2570

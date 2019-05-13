@@ -11,7 +11,9 @@ using namespace std;
 class MergeSort
 {
     public: 
-        MergeSort();
+        int numComparacoes = 0;
+        int numCopias = 0;
+        
         void mergeSort(int vet[], int indiceEsq, int indiceDir);
         void mergeSortObject(Registro registros[], int indiceEsq, int indiceDir);
 

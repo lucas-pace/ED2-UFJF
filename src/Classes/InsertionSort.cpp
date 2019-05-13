@@ -30,17 +30,17 @@ void InsertionSort::insertionSort(int vet[], int TAM)
     }
 }
 
-void InsertionSort::insertionSortHibrido(Registro arr[], int inicio, int fim)
+void InsertionSort::insertionSortHibrido(int arr[], int inicio, int fim)
 {
     int i, j;
-	Registro chave;
+	int chave;
 
 	for (i = inicio + 1; i < fim; i++)
 	{
 		chave = arr[i];
 		j = i - 1;
 
-		while (j >= 0 && (arr[j].getUserId() > chave.getUserId()))
+		while (j >= 0 && (arr[j] > chave))
 		{
 			arr[j + 1] = arr[j];
 			j--;

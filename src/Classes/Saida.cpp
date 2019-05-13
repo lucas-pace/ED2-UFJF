@@ -9,6 +9,9 @@ Saida::~Saida()
     selectionSort.close();
     shellSort.close();
     heapSort.close();
+    quickSortMediana.close();
+    quickSortInsercao.close();
+    
 }
 
 void Saida::getInsertion()
@@ -44,4 +47,14 @@ void Saida::getShell()
 void Saida::getSelection()
 {
     selectionSort.open("selection.txt", ios::out);
+}
+
+void Saida::getQuickMediana()
+{
+    quickSortMediana.open("quickMediana.txt", ios::out);
+}
+
+void Saida::getQuickInsercao()
+{
+    quickSortInsercao.open("quickInsercao.txt", ios::out);
 }

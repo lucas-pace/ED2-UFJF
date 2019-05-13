@@ -13,7 +13,7 @@ void Startup::StartMergeSort(Registro registros[], int ids[], int indiceEsq, int
 
       long long microseconds = duration_cast<std::chrono::microseconds>(resultado).count();
       
-      PrintInt("Merge Sort", indiceDir - indiceEsq, saida, microseconds, 0, 0);
+      PrintInt("Merge Sort", indiceDir - indiceEsq, saida, microseconds, merge.numComparacoes, merge.numCopias);
    }
 
    {
@@ -23,7 +23,7 @@ void Startup::StartMergeSort(Registro registros[], int ids[], int indiceEsq, int
 
       long long microseconds = duration_cast<std::chrono::microseconds>(resultado).count();
 
-      PrintObj("Merge Sort", indiceDir - indiceEsq, saida, microseconds, 0, 0);
+      PrintObj("Merge Sort", indiceDir - indiceEsq, saida, microseconds, merge.numComparacoes, merge.numCopias);
    }
 }
 
@@ -39,10 +39,8 @@ void Startup::StartQuickSort(Registro registros[], int ids[], int low, int high,
 
       long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
 
-      PrintInt("Quick Sort", high - low, saida, microseconds, 0, 0);
+      PrintInt("Quick Sort", high - low + 1, saida, microseconds, quick.numComparacoes, quick.numCopias);
    }
-
-   //quick.inicializa();
 
    {
       auto inicio = std::chrono::high_resolution_clock::now();
@@ -51,7 +49,7 @@ void Startup::StartQuickSort(Registro registros[], int ids[], int low, int high,
 
       long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
 
-      PrintObj("Quick Sort", high - low, saida, microseconds, 0, 0);
+      PrintObj("Quick Sort", high - low + 1, saida, microseconds, quick.numComparacoes, quick.numCopias);
    }
 }
 
@@ -141,7 +139,7 @@ void Startup::StartHeapSort(Registro registros[], int ids[], int TAM, ofstream &
 
       long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
 
-      PrintInt("Heap Sort", TAM, saida, microseconds, 0, 0);
+      PrintInt("Heap Sort", TAM, saida, microseconds, heap.numComparacoes, heap.numCopias);
    }
 
    {
@@ -151,7 +149,52 @@ void Startup::StartHeapSort(Registro registros[], int ids[], int TAM, ofstream &
 
       long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
 
-      PrintObj("Heap Sort", TAM, saida, microseconds, 0, 0);
+      PrintObj("Heap Sort", TAM, saida, microseconds, heap.numComparacoes, heap.numCopias);
+   }
+}
+
+void Startup::StartShellSort(Registro registros[], int TAM, ofstream &saida)
+{
+   ShellSort shell;
+
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      shell.shellSort(registros, TAM);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Shell Sort", TAM, saida, microseconds, shell.numComparacoes, shell.numCopias);
+   }
+}
+
+void Startup::StartQuickSortMediana(int userIds[], int low, int high, int k, ofstream &saida)
+{
+   QuickSort quick;
+
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      quick.quickSortMediana(userIds, low, high, k);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Quick Sort Mediana", high - low + 1, saida, microseconds, quick.numComparacoes, quick.numCopias);
+   }
+}
+
+void Startup::StartQuickSortInsercao(int userIds[], int low, int high, int m, ofstream &saida)
+{
+   QuickSort quick;
+
+   {
+      auto inicio = std::chrono::high_resolution_clock::now();
+      quick.quickSortInsercao(userIds, low, high, m);
+      auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(resultado).count();
+
+      PrintInt("Quick Sort Insercao", high - low + 1, saida, microseconds, quick.numComparacoes, quick.numCopias);
    }
 }
 

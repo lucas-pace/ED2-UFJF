@@ -1,7 +1,5 @@
 #include "../Headers/MergeSort.h";
 
-MergeSort::MergeSort(){}
-
 /**
  * Utiliza o algortimo de Merge Sort para ordenar um vetor de inteiros
  *
@@ -24,7 +22,7 @@ void MergeSort::mergeSort(int vet[], int indiceEsq, int indiceDir)
 }
 
 /**
- * Algortimo de intercalação para o Merge Sort
+ * Algortimo de intercalaï¿½ï¿½o para o Merge Sort
  *
  * @param int vet[]
  * @param int indiceEsq
@@ -50,14 +48,19 @@ void MergeSort::Intercalacao(int vet[], int indiceEsq, int indiceMed, int indice
     k = indiceEsq;
     while (i < tam1 && j < tam2)
     {
+        numComparacoes++;
         if (vetEsq[i] <= vetDir[j])
         {
             vet[k] = vetEsq[i];
+            numCopias++;
+
             i++;
         }
         else
         {
             vet[k] = vetDir[j];
+            numCopias++;
+
             j++;
         }
         k++;
@@ -66,6 +69,8 @@ void MergeSort::Intercalacao(int vet[], int indiceEsq, int indiceMed, int indice
     while (i < tam1)
     {
         vet[k] = vetEsq[i];
+        numCopias++;
+
         i++;
         k++;
     }
@@ -73,6 +78,8 @@ void MergeSort::Intercalacao(int vet[], int indiceEsq, int indiceMed, int indice
     while (j < tam2)
     {
         vet[k] = vetDir[j];
+        numCopias++;
+
         j++;
         k++;
     }
@@ -109,22 +116,29 @@ void MergeSort::IntercalacaoObject(Registro registros[], int indiceEsq, int indi
     k = indiceEsq;
     while (i < tam1 && j < tam2)
     {
+        numComparacoes++;
         if (vetEsq[i] <= vetDir[j])
         {
             registros[k].setUserId(vetEsq[i]);
+            numCopias++;
+
             i++;
         }
         else
         {
             registros[k].setUserId(vetDir[j]);
+            numCopias++;
+
             j++;
         }
         k++;
     }
-
+    
     while (i < tam1)
     {
         registros[k].setUserId(vetEsq[i]);
+        numCopias++;
+
         i++;
         k++;
     }
@@ -132,6 +146,8 @@ void MergeSort::IntercalacaoObject(Registro registros[], int indiceEsq, int indi
     while (j < tam2)
     {
         registros[k].setUserId(vetDir[j]);
+        numCopias++;
+        
         j++;
         k++;
     }

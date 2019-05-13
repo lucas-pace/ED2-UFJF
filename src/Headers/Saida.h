@@ -17,6 +17,8 @@ class Saida
         ofstream mergeSort;
         ofstream selectionSort;
         ofstream shellSort;
+        ofstream quickSortMediana;
+        ofstream quickSortInsercao;
         void getInsertion();
         void getMerge();
         void getQuick();
@@ -24,4 +26,6 @@ class Saida
         void getBubble();
         void getHeap();
         void getShell();
+        void getQuickMediana();
+        void getQuickInsercao();
 };

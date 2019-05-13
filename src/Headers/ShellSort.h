@@ -12,8 +12,9 @@ using namespace std;
 class ShellSort
 {
     public:
+        int numComparacoes = 0;
+        int numCopias = 0;
         void shellSort(Registro arr[], int tam);
-
 };
 
 

@@ -1,0 +1,211 @@
+
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 1
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            0              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            3              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            5              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            5              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            6              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            6              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            9              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            7              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort           10              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            5              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 10
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort            7              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          907              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort         1056              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          719              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          522              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          393              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          564              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          296              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          523              0              0
+2570
+Vetor de Inteiros
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          280              0              0
+2570
+Vetor de Objetos
+
+(N=)Instancia: 100
+
+               TEMPO(ms)     COMPARACAO         TROCAS
+Bubble Sort          444              0              0
+2570

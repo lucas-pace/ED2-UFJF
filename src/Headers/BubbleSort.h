@@ -10,7 +10,9 @@ using namespace std;
 
 class BubbleSort
 {
-    public: 
+    public:
+        int numComparacoes = 0;
+        int numCopias = 0;
         void bubbleSort(int vet[], int TAM);
         void bubbleSortObject(Registro vet[], int TAM);
 };

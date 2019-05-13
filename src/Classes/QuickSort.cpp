@@ -37,17 +37,17 @@ int QuickSort::partition(int arr[], int low, int high)
 
     for (int j = low; j <= high - 1; j++)
     {
-        //numComparacoes++;
+        numComparacoes++;
         if (arr[j] <= pivo)
         {
             i++;
             swap(arr[i], arr[j]);
-            //numCopias++;
+            numCopias++;
         }
     }
 
     swap(arr[i + 1], arr[high]);
-    //numCopias++;
+    numCopias++;
     
     return (i + 1);
 }
@@ -82,25 +82,27 @@ void QuickSort::quickSortObject(Registro arr[], int low, int high)
 int QuickSort::partitionObject(Registro arr[], int low, int high)
 {
     int pivo = arr[high].getUserId();
-    //numCopias++;
+    
     int i = (low - 1);
 
     for (int j = low; j <= high- 1; j++)
     {
+        numComparacoes++;
         if (arr[j].getUserId() <= pivo)
         {
             i++;
-            //numComparacoes++;
             swap(arr[i], arr[j]);
+            numCopias++;
         }
     }
 
     swap(arr[i + 1], arr[high]);
+    numCopias++;
 
     return (i + 1);
 }
 
-void QuickSort::quickSortMediana(Registro arr[], int inicio, int fim, int k)
+void QuickSort::quickSortMediana(int arr[], int inicio, int fim, int k)
 {
     if (inicio < fim)
     {
@@ -119,13 +121,13 @@ void QuickSort::quickSortMediana(Registro arr[], int inicio, int fim, int k)
  * @param int k
  * @return int
 */
-int QuickSort::mediana(Registro arr[], int inicio, int fim, int k)
+int QuickSort::mediana(int arr[], int inicio, int fim, int k)
 {
     InsertionSort is = InsertionSort();
     int indiceMediana;
 	int indiceRand;
 
-    Registro vetor[k];
+    int vetor[k];
     for (int i = 0; i < k; i++)
     {
         srand(i);
@@ -134,7 +136,7 @@ int QuickSort::mediana(Registro arr[], int inicio, int fim, int k)
     }
 
     is.insertionSortHibrido(vetor, 0, k);
-    indiceMediana = vetor[k == 3 ? 1 : 2].getMovieId();
+    indiceMediana = vetor[k == 3 ? 1 : 2];
     return indiceMediana;
 }
 
@@ -148,16 +150,16 @@ int QuickSort::mediana(Registro arr[], int inicio, int fim, int k)
  * @param int mediana
  * @return int
 */
-int QuickSort::partitionMediana(Registro arr[], int inicio, int fim,int mediana)
+int QuickSort::partitionMediana(int arr[], int inicio, int fim,int mediana)
 {
     int pospiv = inicio + (mediana % (fim - inicio + 1));
-    int pivo = arr[pospiv].getUserId(); //Pega o userID da posicao que foi pedida e coloca ela como pivo
+    int pivo = arr[pospiv]; //Pega o userID da posicao que foi pedida e coloca ela como pivo
 	swap(arr[pospiv], arr[fim]);
 	pospiv = fim;
     int i = inicio - 1;
     int j;
     for (j = inicio; j <= fim - 1; j++) {
-        if (arr[j].getUserId() <= pivo) {
+        if (arr[j]<= pivo) {
             i++;
             numComparacoes++;
             swap(arr[i], arr[j]);
@@ -177,7 +179,7 @@ int QuickSort::partitionMediana(Registro arr[], int inicio, int fim,int mediana)
  * @param int m
  * @return int
 */
-void QuickSort::quickSortInsercao(Registro arr[], int inicio, int fim, int m)
+void QuickSort::quickSortInsercao(int arr[], int inicio, int fim, int m)
 {
     InsertionSort is = InsertionSort();
         if (inicio < fim)
@@ -190,7 +192,7 @@ void QuickSort::quickSortInsercao(Registro arr[], int inicio, int fim, int m)
                 }
                 else
                 {
-				int part = partitionObject(arr, inicio, fim);
+				int part = partition(arr, inicio, fim);
 				quickSortInsercao(arr, inicio, part - 1, 10);
 				quickSortInsercao(arr, part + 1, fim, 10);
                 }
@@ -203,7 +205,7 @@ void QuickSort::quickSortInsercao(Registro arr[], int inicio, int fim, int m)
                 }
                 else
                 {
-				int part = partitionObject(arr, inicio, fim);
+				int part = partition(arr, inicio, fim);
 				quickSortInsercao(arr, inicio, part - 1, 100);
 				quickSortInsercao(arr, part + 1, fim, 100);
                 }

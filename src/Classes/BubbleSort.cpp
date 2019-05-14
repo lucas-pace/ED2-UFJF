@@ -18,7 +18,7 @@ void BubbleSort::bubbleSort(int vet[], int TAM)
             if (vet[j] > vet[j + 1])
             {
                 swap(vet[j], vet[j + 1]);
-                numCopias++;
+                numCopias+=3;
             }
         }
     }
@@ -42,7 +42,7 @@ void BubbleSort::bubbleSortObject(Registro vet[], int TAM)
             if (vet[j].getUserId() > vet[j + 1].getUserId())
             {
                 swap(vet[j], vet[j + 1]);
-                numCopias++;
+                numCopias+=3;
             }
         }
     }

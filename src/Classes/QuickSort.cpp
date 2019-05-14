@@ -33,6 +33,8 @@ void QuickSort::quickSort(int arr[], int low, int high)
 int QuickSort::partition(int arr[], int low, int high)
 {
     int pivo = arr[high];
+    numCopias++;
+
     int i = (low - 1);
 
     for (int j = low; j <= high - 1; j++)
@@ -42,12 +44,12 @@ int QuickSort::partition(int arr[], int low, int high)
         {
             i++;
             swap(arr[i], arr[j]);
-            numCopias++;
+            numCopias+=3;
         }
     }
 
     swap(arr[i + 1], arr[high]);
-    numCopias++;
+    numCopias+=3;
     
     return (i + 1);
 }
@@ -82,7 +84,8 @@ void QuickSort::quickSortObject(Registro arr[], int low, int high)
 int QuickSort::partitionObject(Registro arr[], int low, int high)
 {
     int pivo = arr[high].getUserId();
-    
+    numCopias++;
+
     int i = (low - 1);
 
     for (int j = low; j <= high- 1; j++)
@@ -92,12 +95,12 @@ int QuickSort::partitionObject(Registro arr[], int low, int high)
         {
             i++;
             swap(arr[i], arr[j]);
-            numCopias++;
+            numCopias+=3;
         }
     }
 
     swap(arr[i + 1], arr[high]);
-    numCopias++;
+    numCopias+=3;
 
     return (i + 1);
 }
@@ -133,6 +136,7 @@ int QuickSort::mediana(int arr[], int inicio, int fim, int k)
         srand(i);
         indiceRand = rand() % (fim - inicio);
         vetor[i] = arr[indiceRand];
+        numCopias++;
     }
 
     is.insertionSortHibrido(vetor, 0, k);
@@ -154,18 +158,25 @@ int QuickSort::partitionMediana(int arr[], int inicio, int fim,int mediana)
 {
     int pospiv = inicio + (mediana % (fim - inicio + 1));
     int pivo = arr[pospiv]; //Pega o userID da posicao que foi pedida e coloca ela como pivo
+    numCopias++;
+
 	swap(arr[pospiv], arr[fim]);
+    numCopias+=3;
+
 	pospiv = fim;
     int i = inicio - 1;
     int j;
     for (j = inicio; j <= fim - 1; j++) {
+        numComparacoes++;
         if (arr[j]<= pivo) {
             i++;
-            numComparacoes++;
             swap(arr[i], arr[j]);
+            numCopias+=3;
         }
     }
     swap(arr[i + 1], arr[fim]);
+    numCopias+=3;
+
     return i + 1;
 }
 

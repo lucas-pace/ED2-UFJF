@@ -8,7 +8,7 @@ void HeapSort::heapSort(int arr[], int n)
     for (int i=n-1; i>=0; i--) 
     { 
         swap(arr[0], arr[i]); 
-        numCopias++;
+        numCopias+=3;
 
         heapify(arr, i, 0); 
     } 
@@ -31,7 +31,7 @@ void HeapSort::heapify(int arr[], int n, int i)
     if (maior != i) 
     { 
         swap(arr[i], arr[maior]); 
-        numCopias++;
+        numCopias+=3;
 
         heapify(arr, n, maior); 
     } 
@@ -45,7 +45,7 @@ void HeapSort::heapSortObject(Registro arr[], int n)
     for (int i=n-1; i>=0; i--) 
     { 
         swap(arr[0], arr[i]);
-        numCopias++;
+        numCopias+=3;
 
         heapifyObject(arr, i, 0); 
     } 
@@ -68,7 +68,7 @@ void HeapSort::heapifyObject(Registro arr[], int n, int i)
     if (maior != i) 
     { 
         swap(arr[i], arr[maior]); 
-        numCopias++;
+        numCopias+=3;
 
         heapifyObject(arr, n, maior); 
     } 

@@ -15,12 +15,14 @@ void SelectionSort::selectionSort(int vet[], int TAM)
         idMenor = i;
         for (int j = i; j < TAM; j++)
         {
+            numComparacoes++;
             if (vet[idMenor] > vet[j])
             {
                 idMenor = j;
             }
         }
         swap(vet[idMenor], vet[i]);
+        numCopias+=3;
     }
 }
 
@@ -32,6 +34,7 @@ void SelectionSort::selectionSortObject(Registro registros[], int TAM)
         idMenor = i;
         for (int j = i; j < TAM; j++)
         {
+            numComparacoes++;
             if (registros[idMenor].getUserId() > registros[j].getUserId())
             {
                 idMenor = j;
@@ -39,5 +42,6 @@ void SelectionSort::selectionSortObject(Registro registros[], int TAM)
         }
         
         swap(registros[idMenor], registros[i]);
+        numCopias+=3;
     }
 }

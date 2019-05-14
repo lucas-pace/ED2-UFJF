@@ -23,10 +23,15 @@ void ShellSort::shellSort(Registro arr[], int tam)
             // compara o elementos da lacuna e faz a troca dos elementos quando necessaria
             numComparacoes++;
             for (j = i; j >= lacuna && arr[j - lacuna].getUserId() > pivo; j -= lacuna)
+            {
                 arr[j].setUserId(arr[j - lacuna].getUserId());
+                numCopias++;
+            }
+                
 
             // volta o pivo para sua posicao inicial
             arr[j].setUserId(pivo);
+            numCopias++;
         }
     }
 }
